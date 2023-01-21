@@ -1,0 +1,31 @@
+
+.prof {
+  grid-area: prof;
+  background-color: rgb(250, 240, 225);
+  color: rgb(142, 9, 9);
+  font-size: x-large;
+
+}
+.description {
+  padding-left: 15px;
+
+}
+.myposts {
+  padding-left: 15px;
+
+}
+.posts img {
+  width: 100%;
+
+}
+.item {
+padding-left: 15px;
+}
+.item img {
+width: 80px;
+border-radius: 40px;
+
+}
+.span {
+  padding-left: 15px;
+}

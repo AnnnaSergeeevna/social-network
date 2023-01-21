@@ -1,0 +1,8 @@
+
+.foot {
+  grid-area: foot;
+  background-color: rgb(149, 15, 15);
+  color: white;
+  font-family: serif;
+  text-align: right;
+}
