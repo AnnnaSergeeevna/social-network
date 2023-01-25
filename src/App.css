@@ -8,3 +8,10 @@
   font-family: serif;
 }
 
+.App-wrapper-content {
+  grid-area: prof;
+  background-color: rgb(250, 240, 225);
+  color: rgb(142, 9, 9);
+  font-size: x-large;
+}
+
