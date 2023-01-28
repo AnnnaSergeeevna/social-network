@@ -5,18 +5,29 @@ import Header from '../src/Components/Header/Header';
 import Navbar from '../src/Components/Navbar/Navbar.jsx';
 import Profile from '../src/Components/Profile/Profile.jsx';
 import Footer from '../src/Components/Footer/Footer.jsx';
+import Dialogs from './Components/Dialogs/Dialogs';
+import Music from './Components/Music';
+import News from './Components/News';
+import Settings from './Components/Settings';
+import { Routes, Route } from 'react-router-dom';
+import state from './Redux/State';
 
-const App = () => {
+const App = (props) => {
   return (
-    <div>
-      <div className="App-wrapper">
+      <div className='App-wrapper'>
         <Header />
         <Navbar />
-        <Profile />
+        <div className='App-wrapper-content'>
+        <Routes>
+          <Route path='/profile' element={<Profile posts={state.profilePage.posts}/>}></Route>
+          <Route path='/dialogs' element={<Dialogs dialogs={state.dialogsPage.dialogs} messages={state.dialogsPage.messages}/>}></Route>
+          <Route path='/news' element={<News />}></Route>
+          <Route path='/music' element={<Music />}></Route>
+          <Route path='/settings' element={<Settings />}></Route>
+          </Routes>
+        </div>
         <Footer />
-      </div>
       </div>
       );
 }
-
-      export default App;
+export default App;

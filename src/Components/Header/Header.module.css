@@ -1,0 +1,16 @@
+
+.head {
+grid-area: head;
+height: 90px;
+background-color: rgb(233, 233, 233);
+
+color: rgb(142, 9, 9);
+
+font-family: serif;
+font-size: xx-large;
+font-weight: bolder;
+
+}
+.head img {
+  width: 80px;
+}

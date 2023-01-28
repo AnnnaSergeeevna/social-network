@@ -1,0 +1,47 @@
+.dialogsColumns {
+  display: grid;
+  grid-template-columns: 3fr 6fr;
+  font-family: serif;
+  background-color: rgb(195, 223, 223);
+  line-height: 250%;
+  padding-top: 15px;
+  padding-left: 10px;
+  color: rgb(142, 9, 9);
+  text-align: center;
+}
+.dialogsColumns img {
+  width: 70px;
+border-radius: 35px;
+
+}
+.dialogs {
+  padding-left: 30px;
+  color: rgb(142, 9, 9);
+  
+}
+
+.messages {
+  padding-left: 10px;
+}
+
+.dialogs .active {
+  color: rgb(142, 9, 9);
+  font-size: large;
+  }
+  /* a:link {
+    color:rgb(142, 9, 9);
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color:rgb(142, 9, 9);
+  }
+  
+  a:hover {
+    color: rgb(232, 189, 88);
+    text-decoration-line: none;
+  }
+  
+  a:active {
+    color: #edce92;
+  } */

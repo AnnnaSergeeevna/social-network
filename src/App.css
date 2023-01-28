@@ -10,7 +10,7 @@
 
 .App-wrapper-content {
   grid-area: prof;
-  background-color: rgb(250, 240, 225);
+  background-color: white;
   color: rgb(142, 9, 9);
   font-size: x-large;
 }
