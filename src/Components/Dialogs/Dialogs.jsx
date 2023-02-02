@@ -19,11 +19,22 @@ const Message = (props) => {
 const Dialogs = (props) => {
 let dialogsElements = props.dialogs.map( d =>  <DialogItem id={d.id} prflimg={d.prflimg} name={d.name} />)
 let messagesElements = props.messages.map( m => <Message message={m.message} />)
+
+let newMessageElement = React.createRef()
+let sendMessage = () => {
+    props.sendMessage()
+}
+let onMessageChange = () => {
+    let body = newMessageElement.current.value
+    props.sendNewMessage(body)
+}
 return (
         <div className={classes.dialogsColumns}>
             <div className={classes.dialogs}>{dialogsElements}
             </div>
             <div className={classes.messages}>{messagesElements}
+            <textarea onChange={onMessageChange} ref={newMessageElement}value={props.newMessageText}/>
+            <div className={classes.button}><button onClick={sendMessage}>Send message</button></div>
             </div>
         </div>)
 }

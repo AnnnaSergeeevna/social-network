@@ -14,20 +14,20 @@ import state from './Redux/State';
 
 const App = (props) => {
   return (
-      <div className='App-wrapper'>
-        <Header />
-        <Navbar />
-        <div className='App-wrapper-content'>
+    <div className='App-wrapper'>
+      <Header />
+      <Navbar />
+      <div className='App-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Profile posts={state.profilePage.posts}/>}></Route>
-          <Route path='/dialogs' element={<Dialogs dialogs={state.dialogsPage.dialogs} messages={state.dialogsPage.messages}/>}></Route>
+          <Route path='/profile' element={<Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />}></Route>
+          <Route path='/dialogs' element={<Dialogs  dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages} sendMessage={props.sendMessage} sendNewMessage={props.sendNewMessage}/>}></Route>
           <Route path='/news' element={<News />}></Route>
           <Route path='/music' element={<Music />}></Route>
           <Route path='/settings' element={<Settings />}></Route>
-          </Routes>
-        </div>
-        <Footer />
+        </Routes>
       </div>
-      );
+      <Footer />
+    </div>
+  );
 }
 export default App;

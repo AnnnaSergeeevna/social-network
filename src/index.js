@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost, subscribe, updateNewPostText } from './Redux/State'
+import { addPost, subscribe, updateNewPostText, sendMessage, sendNewMessage } from './Redux/State'
 import state from './Redux/State';
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // ВОТ ЭТА СТРОКА
@@ -12,7 +12,7 @@ let rerenderEntireTree = (state) => {
   root.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} />
+        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} sendMessage={sendMessage} sendNewMessage={sendNewMessage}/>
       </React.StrictMode>
     </BrowserRouter>)
 }
