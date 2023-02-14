@@ -8,21 +8,16 @@ import { addPost, subscribe, updateNewPostText, sendMessage, sendNewMessage } fr
 import store from './Redux/Redux-store';
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // ВОТ ЭТА СТРОКА
-let rerenderEntireTree = (state) => {
   root.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
+        <App  store={store}/>
       </React.StrictMode>
     </BrowserRouter>)
-}
 
-rerenderEntireTree(store.getState())
 
-store.subscribe(() => {
-  let state = store.getState()
-  rerenderEntireTree(state)
-})
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

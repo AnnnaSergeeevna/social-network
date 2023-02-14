@@ -6,6 +6,7 @@
   "nav prof"
   "foot foot";
   font-family: serif;
+  
 }
 
 .App-wrapper-content {
@@ -13,5 +14,6 @@
   background-color: white;
   color: rgb(142, 9, 9);
   font-size: x-large;
+  text-align: left;
 }
 

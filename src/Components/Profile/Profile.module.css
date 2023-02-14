@@ -3,30 +3,37 @@
 
 }
 .description {
-  padding-left: 15px;
+padding-left: 15px;
 
 }
 .myposts {
-  padding-left: 15px;
+padding-left: 15px;
+vertical-align: top;
+
+}
+.post {
+text-align: justify;
+vertical-align: top;
 
 }
 .posts img {
-  width: 100%;
+width: 100%;
 }
 .button {
-  padding-bottom: 15px;
+padding-bottom: 15px;
 }
-
 .item {
 padding-left: 15px;
+align-items: center;
 }
 .item img {
 width: 70px;
 border-radius: 35px;
-
 }
 .span {
-  padding-left: 15px;
+padding-left: 15px;
 }
 .likecount {
+font-size: medium;
+vertical-align: text-bottom;
 }

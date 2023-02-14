@@ -17,7 +17,7 @@ border-radius: 35px;
 .dialogs {
   padding-left: 30px;
   color: rgb(142, 9, 9);
-  
+  vertical-align: top;
 }
 
 .messages {
