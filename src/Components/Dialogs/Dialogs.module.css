@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 3fr 6fr;
   font-family: serif;
-  background-color: rgb(195, 223, 223);
+  background-color: rgb(252, 252, 252);
   line-height: 250%;
   padding-top: 15px;
   padding-left: 10px;
@@ -15,9 +15,7 @@ border-radius: 35px;
 
 }
 .dialogs {
-  padding-left: 30px;
-  color: rgb(142, 9, 9);
-  vertical-align: top;
+  background: linear-gradient(rgb(252, 252, 252), rgb(120, 2, 2)); 
 }
 
 .messages {
