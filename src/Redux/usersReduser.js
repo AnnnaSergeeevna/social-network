@@ -8,7 +8,7 @@ let initialState = {
     users: [ ],
     pageSize: 10,
     totalUsersCount: 50,
-    currentPage: 2
+    currentPage: 1
     }
 const usersReduser = (state = initialState, action) => {
     switch (action.type) {
