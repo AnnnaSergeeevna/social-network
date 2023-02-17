@@ -13,6 +13,7 @@ import { Routes, Route } from 'react-router-dom';
 import state from './Redux/Redux-store';
 import DialogsContainer from './Components/Dialogs/Dialogs container';
 import UsersContainer from './Components/Users/Users container';
+import ProfileContainer from './Components/Profile/Profile Container';
 
 const App = (props) => {
   return (
@@ -21,7 +22,7 @@ const App = (props) => {
       <Navbar />
       <div className='App-wrapper-content'>
         <Routes>
-          <Route path='/profile' element={<Profile store={props.store} />}></Route>
+          <Route path='/profile' element={<ProfileContainer store={props.store} />}></Route>
           <Route path='/dialogs' element={<DialogsContainer store={props.store}/>}></Route>
           <Route path='/users' element={<UsersContainer store={props.store}/>}></Route>
           <Route path='/news' element={<News />}></Route>

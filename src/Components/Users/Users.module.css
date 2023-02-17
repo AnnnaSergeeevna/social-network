@@ -49,10 +49,14 @@
     font-size: large;
     font-weight: bold;
     cursor: pointer;
+    padding-left: 10px;
+
 }
 
 .pagesNmbrs {
     font-size: large;
     cursor: pointer;
     padding-bottom: 10px;
+    padding-left: 10px;
+
 }
