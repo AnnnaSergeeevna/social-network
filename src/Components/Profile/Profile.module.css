@@ -21,6 +21,7 @@ width: 100%;
 }
 .button {
 padding-bottom: 15px;
+cursor: pointer;
 }
 .item {
 padding-left: 15px;
