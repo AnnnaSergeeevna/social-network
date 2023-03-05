@@ -6,6 +6,9 @@
 padding-left: 15px;
 
 }
+.description img {
+    height: 250px;
+  }
 .myposts {
 padding-left: 15px;
 vertical-align: top;

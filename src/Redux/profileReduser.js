@@ -1,3 +1,5 @@
+import { getProfile } from "../API/API";
+
 const ADD_POST = 'ADD_POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
@@ -12,17 +14,18 @@ let initialState = {
 const profileReduser = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
-            let stateCopy = {...state}
+            let stateCopy = { ...state }
             stateCopy.posts = [...state.posts]
-            stateCopy.posts.push({ id: 3, 
-                message: state.newPostText, 
-                likesCount: 0 
+            stateCopy.posts.push({
+                id: 3,
+                message: state.newPostText,
+                likesCount: 0
             })
             stateCopy.newPostText = ''
             return stateCopy
         }
-        case UPDATE_NEW_POST_TEXT: {            
-            let stateCopy = {...state}
+        case UPDATE_NEW_POST_TEXT: {
+            let stateCopy = { ...state }
             stateCopy.newPostText = action.newText
             return stateCopy
         }
@@ -33,7 +36,14 @@ const profileReduser = (state = initialState, action) => {
             return state
     }
 }
-export const addPostActionCreator = () => ({type: ADD_POST})
+export const addPostActionCreator = () => ({ type: ADD_POST })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+export const getUserProfile = (userId) => {
+    return (dispatch) => {
+        getProfile(userId).then(data => {
+            dispatch(setUserProfile(data))
+        })
+    }
+}
 export default profileReduser

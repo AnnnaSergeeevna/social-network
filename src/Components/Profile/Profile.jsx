@@ -5,6 +5,7 @@ import MyPostsContainer from './MyPosts container.jsx';
 
 
 const Profile = (props) => {
+    
     return (
         <div>
             <ProfileInfo profile={props.profile} />

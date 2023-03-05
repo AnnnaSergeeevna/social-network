@@ -1,9 +1,7 @@
 import React from "react"
-import axios from "axios"
 import { NavLink } from 'react-router-dom'
 import styles from './Users.module.css'
 import userPhoto from '../Users/userPhoto.png'
-import { getFollow, getUnfollow } from "../../API/API"
 
 let Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -33,14 +31,12 @@ let Users = (props) => {
                         </div>
                         <div>
                             {u.followed
-                                ? <button className={styles.button} onClick={() => {
-                                    getUnfollow(u).then(data => {
-                                            if (data.resultCode == 0) { props.unfollow(u.id) }})
+                                ? <button disabled={props.followingInProgress
+                                    .some(id=>id===u.id)} className={styles.button} onClick={() => {props.unFollow(u.id)
                                 }} >Unfollow</button>
 
-                                : <button className={styles.button} onClick={() => {
-                                    getFollow(u).then(data => {
-                                            if (data.resultCode == 0) { props.follow(u.id) } })
+                                : <button disabled={props.followingInProgress.some(id=>id===u.id) } className={styles.button} onClick={() => {
+                                    props.follow(u.id)
                                 }}>Follow</button>}
                         </div>
                     </span>

@@ -15,13 +15,13 @@ export const getUsers = (currentPage, pageSize) => {
         return response.data
     })
 }
-export const getUnfollow = (u) => {
-    return instanse.delete(`follow/${u.id}`).then(response => {
+export const getUnfollow = (userId) => {
+    return instanse.delete(`follow/${userId}`).then(response => {
         return response.data
     })
 }
-export const getFollow = (u) => {
-    return instanse.post(`follow/${u.id}`).then(response => {
+export const getFollow = (userId) => {
+    return instanse.post(`follow/${userId}`).then(response => {
         return response.data
     })
 }
@@ -30,6 +30,7 @@ export const getAuth = () => {
     return response.data
 })
 }
+
 export const getProfile = (userId) => {
     return instanse.get(`profile/${userId}`).then(response => {
         return response.data
