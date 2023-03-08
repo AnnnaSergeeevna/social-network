@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Navigate, NavLink } from 'react-router-dom'
 import classes from './Dialogs.module.css'
 import { sendMessageActionCreator, sendMessageCreator, } from '../../Redux/dialogsReduser'
 import DialogItem from './DialogItem'

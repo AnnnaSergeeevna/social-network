@@ -4,20 +4,27 @@ import classes from './Dialogs.module.css'
 import { sendMessageActionCreator, sendMessageCreator, } from '../../Redux/dialogsReduser'
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux'
+import {withAuthRedirect} from '../../HOC/withAuth'
+import { compose } from 'redux'
 
 
 let mapStateToProps = (state) => {
-    return {dialogsPage: state.dialogsPage}
-}
-let mapDispatchToProps = (dispatch) => {
-return {
-    sendMessageBody: (body) => {
-        dispatch(sendMessageActionCreator(body))
-    },
-    sendMessage: ()=> {
-        dispatch(sendMessageCreator())
+    return {
+        dialogsPage: state.dialogsPage,
+        isAuth: state.auth.isAuth 
     }
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        sendMessageBody: (body) => {
+            dispatch(sendMessageActionCreator(body))
+        },
+        sendMessage: () => {
+            dispatch(sendMessageCreator())
+        }
+    }
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
-export default DialogsContainer; 
+export default compose (Dialogs) (
+    withAuthRedirect,
+    connect(mapStateToProps, mapDispatchToProps)
+) 
