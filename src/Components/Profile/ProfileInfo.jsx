@@ -1,18 +1,16 @@
 import React from 'react';
 import styles from './Profile.module.css';
+import Status from './Status';
 
 
 const ProfileInfo = (props) => {
-    if (!props.profile?.photos.large) {
-        return <div className={styles.description}><img src='../../post.images.jpeg'></img></div>
-    }
     return (
-        <div>
-            {/* <div className={styles.posts}><img src='../../japanesgrdn.png'></img></div> */}
-            <div className={styles.description}>
-                <img src={props.profile.photos.large} />
+        <div className={styles.description}>
+            <h3>{props.profile?.fullName}</h3>
+            <Status status={props.status} updateStatus={props.updateStatus} />
+            <div>
+                <img src={props.profile?.photos?.large != null ? props.profile?.photos?.large : '../../post.images.jpeg'} className={styles.usrPhoto} />
             </div>
-            <h3>ava + description</h3>
         </div>
     )
 }

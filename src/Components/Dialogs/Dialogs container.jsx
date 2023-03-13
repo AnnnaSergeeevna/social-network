@@ -4,6 +4,8 @@ import classes from './Dialogs.module.css'
 import { sendMessageActionCreator, sendMessageCreator, } from '../../Redux/dialogsReduser'
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
+import { withAuthRedirect } from '../../HOC/withAuth'
 
 
 let mapStateToProps = (state) => {
@@ -19,5 +21,7 @@ return {
     }
 }
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
-export default DialogsContainer; 
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, mapDispatchToProps),
+) (Dialogs) 

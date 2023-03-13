@@ -20,20 +20,26 @@ class Status extends React.Component {
     onStatusChange = (e) => {
         this.setState({
             status: e.currentTarget.value
-    })
-}
+        })
+    }
+    componentDidUpdate(prevProps, prevState) {
+        
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
+    }
     render() {
         return (
             <div className={styles.description}>
                 {!this.state.editMode &&
-                    <div>
-                        <span onClick={this.activateEditMode}>{this.props.status}</span>
-                    </div>}
+                    <div className={styles.status} onClick={() => this.activateEditMode()}>{this.props.status}</div>
+                }
                 {this.state.editMode &&
-                    <div>
-                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} />
-                    </div>}
-            </div>
+                    <input className={styles.status} onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} />
+                }
+        </div>
         )
     }
 }

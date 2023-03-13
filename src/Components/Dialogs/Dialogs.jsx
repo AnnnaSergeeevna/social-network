@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import classes from './Dialogs.module.css'
-import { sendMessageActionCreator, sendMessageCreator, } from '../../Redux/dialogsReduser'
 import DialogItem from './DialogItem'
 import Message from './Message'
 
@@ -11,7 +10,6 @@ const Dialogs = (props) => {
     let dialogsElements = state.dialogsPage.dialogs.map(d => <DialogItem id={d.id} prflimg={d.prflimg} name={d.name} />)
     let messagesElements = state.dialogsPage.messages.map(m => <Message message={m.message} />)
     let newMessageText = state.newMessageText
-
     let sendMessageClick = () => {
         props.sendMessage()
     }

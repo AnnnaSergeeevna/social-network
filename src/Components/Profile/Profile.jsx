@@ -5,12 +5,14 @@ import MyPostsContainer from './MyPosts container.jsx';
 
 
 const Profile = (props) => {
-    
+
     return (
         <div>
-            <ProfileInfo profile={props.profile} />
+            <ProfileInfo profile={props.profile}
+                status={props.status}
+                updateStatus={props.updateStatus} />
             <div className={styles.myposts}>
-                <MyPostsContainer store={props.store}/></div>
+                <MyPostsContainer store={props.store} /></div>
         </div>
     )
 }
