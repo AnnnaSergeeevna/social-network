@@ -23,6 +23,7 @@ const authReduser = (state = initialState, action) => {
 }
 
 export const setAuthUserData = (userId, email,login) => ({type: SET_USERS_DATA, data: {userId, email,login}})
+
 export const getAuthUserData = () => {
     return (dispatch) => {
         getAuth().then(data => {
