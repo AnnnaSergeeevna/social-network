@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
-const SEND_NEW_MESSAGE = 'SEND_NEW_MESSAGE'
 let initialState = {
     dialogsPage: {
         dialogs: [
@@ -15,8 +14,7 @@ let initialState = {
             { id: 2, message: 'Message 2' },
             { id: 3, message: 'Message 3' },
             { id: 4, message: 'Message 4' },
-        ],
-        newMessageText: ''
+        ]
     }
 }
 const dialogsReduser = (state = initialState, action) => {
@@ -26,19 +24,12 @@ const dialogsReduser = (state = initialState, action) => {
             {
             let stateCopy = {...state}
             stateCopy.dialogsPage.messages = [...state.dialogsPage.messages]
-            stateCopy.dialogsPage.messages.push({ id: 5, message: state.newMessageText })
-            stateCopy.newMessageText = ''
-            return stateCopy
-            }
-            case SEND_NEW_MESSAGE: {
-            let stateCopy = {...state}
-            stateCopy.newMessageText = action.body
+            stateCopy.dialogsPage.messages.push({ id: 5, message: state.newMessageText }) 
             return stateCopy
             }
         default:
             return state 
     }
 }
-export const sendMessageCreator = () => ({type: SEND_MESSAGE})
-export const sendMessageActionCreator = (body) => ({type: SEND_NEW_MESSAGE, body: body})
+export const sendMessageCreator = (newMessageText) => ({type: SEND_MESSAGE, newMessageText})
 export default dialogsReduser

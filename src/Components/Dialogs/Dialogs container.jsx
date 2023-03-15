@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import classes from './Dialogs.module.css'
-import { sendMessageActionCreator, sendMessageCreator, } from '../../Redux/dialogsReduser'
+import { sendMessageCreator, } from '../../Redux/dialogsReduser'
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -15,11 +15,8 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        sendMessageBody: (body) => {
-            dispatch(sendMessageActionCreator(body))
-        },
-        sendMessage: () => {
-            dispatch(sendMessageCreator())
+        sendMessage: (newMessageText) => {
+            dispatch(sendMessageCreator(newMessageText))
         }
     }
 }
