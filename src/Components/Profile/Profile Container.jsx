@@ -25,7 +25,9 @@ import { compose } from 'redux';
 }
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    isAuth: state.auth.isAuth 
+
 })
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
@@ -46,3 +48,4 @@ export default compose(
     connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
     withRouter
 ) (ProfileContainer)
+
