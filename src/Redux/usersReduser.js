@@ -1,4 +1,4 @@
-import { getFollow, getUnfollow, getUsers,  } from "../API/API"
+import { getFollow, getUnfollow, getUsers, } from "../API/API"
 
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
@@ -46,10 +46,12 @@ const usersReduser = (state = initialState, action) => {
             return { ...state, totalUsersCount: action.count }
         }
         case FOLLOWING_IN_PROGRESS: {
-            return { ...state, 
+            return {
+                ...state,
                 followingInProgress: action.isFetching
-                ? [...state.followingInProgress, action.userId]
-                 : state.followingInProgress.filter(id=>id != action.userId) }
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter(id => id != action.userId)
+            }
         }
         default:
             return state
@@ -66,10 +68,10 @@ export const getUsersThunk = (currentPage, pageSize) => {
     return (dispatch) => {
         getUsers(currentPage, pageSize)
             .then(data => {
-            dispatch(setCurrentPage(currentPage))
-            dispatch(setUsers(data.items))
-            dispatch(setTotalUsersCount(data.totalCount))
-        })
+                dispatch(setCurrentPage(currentPage))
+                dispatch(setUsers(data.items))
+                dispatch(setTotalUsersCount(data.totalCount))
+            })
     }
 }
 export const follow = (userId) => {
@@ -80,8 +82,8 @@ export const follow = (userId) => {
                 dispatch(followAC(userId))
             }
             dispatch(toggleFollowingInProgress(false, userId))
-    })
-}
+        })
+    }
 }
 export const unFollow = (userId) => {
     return (dispatch) => {
@@ -89,11 +91,11 @@ export const unFollow = (userId) => {
         getUnfollow(userId).then(data => {
             debugger
             if (data.resultCode == 0) {
-            dispatch(unFollowAC(userId))
+                dispatch(unFollowAC(userId))
             }
             dispatch(toggleFollowingInProgress(false, userId))
-    })
-}
+        })
+    }
 }
 
 

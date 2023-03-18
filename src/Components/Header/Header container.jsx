@@ -2,7 +2,8 @@ import axios from "axios"
 import React from "react"
 import { connect } from "react-redux";
 import Header from './Header';
-import { getAuthUserData } from '../../Redux/AuthReduser';
+import { getAuthUserData, setAuthUserData } from '../../Redux/AuthReduser';
+import { values } from "redux-form";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {

@@ -30,6 +30,14 @@ export const getAuth = () => {
         return response.data
     })
 }
+export const login = (email, password, rememberMe = false) => {
+    return instance.post(`auth/login`, {email, password, rememberMe}).then(response => {
+        return response.data
+    })
+}
+export const logout = () => {
+    return instance.delete(`auth/login`)
+}
 
 export const profileAPI = {
     getProfile(userId) {
@@ -47,4 +55,4 @@ export const profileAPI = {
             return response.data
         })
     }
-}
+} 

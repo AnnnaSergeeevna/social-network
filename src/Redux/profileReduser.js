@@ -18,10 +18,10 @@ const profileReduser = (state = initialState, action) => {
             stateCopy.posts = [...state.posts]
             stateCopy.posts.push({
                 id: 3,
-                message: action.newPostText,
+                message: action.values,
                 likesCount: 0
             })
-            stateCopy.newPostText = ''
+            stateCopy.values = ''
             return stateCopy
         }
         case SET_USER_PROFILE: {
@@ -34,7 +34,7 @@ const profileReduser = (state = initialState, action) => {
             return state
     }
 }
-export const addPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText })
+export const addPostActionCreator = (values) => ({ type: ADD_POST, values })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 

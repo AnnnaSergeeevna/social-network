@@ -1,40 +1,33 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import styles from './Profile.module.css'
 import Post from "./Post";
-import { reduxForm } from "redux-form";
-import { Field } from "redux-form";
+import { Formik, Field, Form } from 'formik';
+import { addPostActionCreator } from "../../Redux/profileReduser";
 
-const AddNewPostForm = (props) => {
-    return <form onSubmit={props.handleSubmit}>
+
+const MyPosts = () => (
+    <div>
+        {/* <h2>My posts</h2> */}
+            <Formik
+            initialValues={{
+                newPostText: ''
+            }}
+            onSubmit={values => {
+                addPostActionCreator(values)
+              }}>
+        <Form>
         <div>
-            <Field name='newPostText' component='textarea' />
-        </div>
-        <div className={styles.button}>
-            <button>Add post</button>
-        </div>
-    </form>
-}
+<label htmlFor="myPosts">My posts</label>
+</div>
+<div>
+<Field id="myPosts" name="myPosts" placeholder='' /></div>
+<div>
+<button type="addPost">Add post</button></div>
+  </Form>
+  </Formik>
+  </div>
+)
+ReactDOM.render(<MyPosts />, document.getElementById('root'));
 
-let AddNewPostFormRedux = reduxForm({ form: 'profileAddNewPostForm' })(AddNewPostForm)
-
-const MyPosts = (props) => {
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
-    let newPostElement = React.createRef()
-
-    let onAddPost = (values) => {
-        props.addPost(values.newPostText)
-    }
-
-    return (
-        <div>
-            <h2>My posts</h2>
-            <AddNewPostFormRedux onSubmit={onAddPost} />
-            <div className={styles.posts}>
-                {postsElements}
-            </div>
-        </div>
-
-    )
-}
-
-export default MyPosts;
+export default MyPosts

@@ -1,34 +1,36 @@
-import React from "react"
-import { Field, reduxForm } from "redux-form";
- import classes from '../../App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Formik, Field, Form } from 'formik';
+import { getLogin, getLogout } from '../../Redux/AuthReduser';
+import { connect } from "react-redux";
 
-
-const LoginForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field placeholder={"Login"} name={'login'} component={'input'}/>
-            </div>
-            <div>
-                <Field placeholder={"Password"} name={'password'} component={'input'}/>
-            </div>
-            <div>
-                <Field component={'input'} name={'rememberMe'} type={"checkbox"}/> remember me
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
-        </form>
-    )
-}
-const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
-const Login = (props) => {
-    const onSubmit = (FormData) => {
-        console.log(props)
-    }
-    return <div>
-        <h1> Login </h1>
-        <LoginReduxForm onSubmit = {onSubmit} />
+const Login = (props) => (
+    <div>
+        <h1>Login</h1>
+        <Formik
+            initialValues={{
+                email: '',
+                password: '',
+                rememberMe: false
+            }}
+            onSubmit={values => {
+                 props.getLogin(values.email, values.password , values.rememberMe)
+                console.log(values)
+            }
+            }
+        >
+            <Form>
+                <label htmlFor="email">Login</label>
+                <div><Field id="email" name="email" placeholder="email" /></div>
+                <div><label htmlFor="password">Password</label></div>
+                <div><Field id="password" name="password" placeholder="password" /></div>
+                <div><label><Field type="checkbox" name="rememberMe" values="toggle" /> remember me
+                </label></div>
+                <div><button type="login">Login</button></div>
+            </Form>
+        </Formik>
     </div>
-}
-export default Login
+)
+ReactDOM.render(<Login />, document.getElementById('root'));
+
+export default connect(null, {getLogin}) (Login)
