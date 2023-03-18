@@ -4,6 +4,7 @@ import classes from './App.css';
 import Navbar from '../src/Components/Navbar/Navbar.jsx';
 import Footer from '../src/Components/Footer/Footer.jsx';
 import Music from './Components/Music';
+import Test from './Components/Test';
 import News from './Components/News';
 import Settings from './Components/Settings';
 import { Routes, Route } from 'react-router-dom';
@@ -26,6 +27,7 @@ const App = (props) => {
           <Route path='/news' element={<News />}></Route>
           <Route path='/music' element={<Music />}></Route>
           <Route path='/settings' element={<Settings />}></Route>
+          <Route path='/test' element={<Test />}></Route>
           <Route path='/login' element={<Login />}></Route>
         </Routes>
       </div>
