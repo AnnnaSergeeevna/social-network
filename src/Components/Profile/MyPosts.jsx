@@ -1,33 +1,30 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import styles from './Profile.module.css'
-import Post from "./Post";
-import { Formik, Field, Form } from 'formik';
-import { addPostActionCreator } from "../../Redux/profileReduser";
+import Post from "./Post"
+import MPFormik from "./MPFormik"
 
+const MyPosts = (props) => {
+    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
+    let newPostElement = React.createRef()
 
-const MyPosts = () => (
-    <div>
-        {/* <h2>My posts</h2> */}
-            <Formik
-            initialValues={{
-                newPostText: ''
-            }}
-            onSubmit={values => {
-                addPostActionCreator(values)
-              }}>
-        <Form>
+    let onAddPost = () => {
+        props.addPost()
+    }
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.updateNewPostText(text)
+    }
+    return (
         <div>
-<label htmlFor="myPosts">My posts</label>
-</div>
-<div>
-<Field id="myPosts" name="myPosts" placeholder='' /></div>
-<div>
-<button type="addPost">Add post</button></div>
-  </Form>
-  </Formik>
-  </div>
-)
-ReactDOM.render(<MyPosts />, document.getElementById('root'));
+            <h2>My posts</h2>
+            
+            <div className={styles.posts}>
+              < MPFormik /></div>
+              <div> {postsElements}
+            </div>
+        </div>
 
-export default MyPosts
+    )
+}
+
+export default MyPosts;

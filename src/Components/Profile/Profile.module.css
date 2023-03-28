@@ -17,14 +17,16 @@ vertical-align: top;
 .post {
 text-align: justify;
 vertical-align: top;
+padding-top: 20px;
 
 }
-.posts img {
-width: 100%;
+.posts {
+  width: 600px;
 }
 .button {
 padding-bottom: 15px;
 cursor: pointer;
+padding-bottom: 20px;
 }
 .item {
 padding-left: 15px;

@@ -21,7 +21,7 @@ const profileReduser = (state = initialState, action) => {
                 message: action.values,
                 likesCount: 0
             })
-            stateCopy.values = ''
+            stateCopy.values = 'newPostText'
             return stateCopy
         }
         case SET_USER_PROFILE: {
