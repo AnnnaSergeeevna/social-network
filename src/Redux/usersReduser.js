@@ -50,7 +50,7 @@ const usersReduser = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
-                    : state.followingInProgress.filter(id => id != action.userId)
+                    : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
         default:
@@ -78,7 +78,7 @@ export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleFollowingInProgress(true, userId))
         getFollow(userId).then(data => {
-            if (data.resultCode == 0) {
+            if (data.resultCode === 0) {
                 dispatch(followAC(userId))
             }
             dispatch(toggleFollowingInProgress(false, userId))
@@ -90,7 +90,7 @@ export const unFollow = (userId) => {
         dispatch(toggleFollowingInProgress(true, userId))
         getUnfollow(userId).then(data => {
             debugger
-            if (data.resultCode == 0) {
+            if (data.resultCode === 0) {
                 dispatch(unFollowAC(userId))
             }
             dispatch(toggleFollowingInProgress(false, userId))
