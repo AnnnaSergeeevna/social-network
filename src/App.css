@@ -1,12 +1,12 @@
 .App-wrapper {
   display: grid;
-  grid-template-columns: 1fr 5fr ;
+  grid-template-columns: 1fr 5fr;
   grid-template-areas:
-  "head head"
-  "nav prof"
-  "foot foot";
+    "head head"
+    "nav prof"
+    "foot foot";
   font-family: serif;
-  
+
 }
 
 .App-wrapper-content {
@@ -15,7 +15,15 @@
   color: rgb(142, 9, 9);
   font-size: x-large;
   text-align: left;
+  padding-left: 10px;
+}
 
+.App-wrapper-content img {}
+
+#myCanvas {
+  background-image: linear-gradient(to left, rgb(225, 159, 159), rgb(255, 255, 255));
+  width: 500px;
+  height: 450px;
 }
-.App-wrapper-content img {
-}
+
+.tools {}

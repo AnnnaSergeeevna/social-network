@@ -4,7 +4,6 @@ import classes from './App.css';
 import Navbar from '../src/Components/Navbar/Navbar.jsx';
 import Footer from '../src/Components/Footer/Footer.jsx';
 import Music from './Components/Music';
-import Test from './Components/Test';
 import News from './Components/News';
 import Settings from './Components/Settings';
 import { Routes, Route } from 'react-router-dom';
@@ -13,6 +12,9 @@ import UsersContainer from './Components/Users/Users container';
 import ProfileContainer from './Components/Profile/Profile Container';
 import HeaderContainer from './Components/Header/Header container';
 import Login from './Components/Login/Login';
+// import CanvasContainer from './Components/Canvas/Canvas Container';
+import Payment from './Components/Payment/Payment';
+
 
 const App = (props) => {
   return (
@@ -21,13 +23,14 @@ const App = (props) => {
       <Navbar />
       <div className='App-wrapper-content'>
         <Routes>
-          <Route path='/profile/:userId?' element={<ProfileContainer store={props.store}/>}></Route>
+          <Route path='/profile/:userId?' element={<ProfileContainer store={props.store} />}></Route>
           <Route path='/dialogs' element={<DialogsContainer store={props.store} />}></Route>
           <Route path='/users' element={<UsersContainer store={props.store} />}></Route>
+          <Route path='/payment' element={<Payment />}></Route>
+          {/* <Route path='/canvas' element={<CanvasContainer />}></Route> */}
           <Route path='/news' element={<News />}></Route>
           <Route path='/music' element={<Music />}></Route>
           <Route path='/settings' element={<Settings />}></Route>
-          <Route path='/test' element={<Test />}></Route>
           <Route path='/login' element={<Login />}></Route>
         </Routes>
       </div>

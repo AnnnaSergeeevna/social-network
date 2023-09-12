@@ -1,8 +1,9 @@
 import React from 'react';
+import UserContainer from '../Components/Users/Users container'
 
-const Music = () => {
-    return (
-<div><h2>Music</h2></div>
-    )
+class Music extends React.Component {
+    render() {
+        return <h2>Music</h2>
+    }
 }
 export default Music;

@@ -18,7 +18,7 @@ const profileReduser = (state = initialState, action) => {
             stateCopy.posts = [...state.posts]
             stateCopy.posts.push({
                 id: 3,
-                message: action.values,
+                message: action.values, 
                 likesCount: 0
             })
             stateCopy.values = 'newPostText'
